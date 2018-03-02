@@ -1,14 +1,4 @@
-const TeleBot = require('telebot');
-
-const bot = new TeleBot('523073584:AAGgZvFUP_POTtiXWL6t0qzn-OUyImXeoq4');
-
-//bot.on('text', (msg) => msg.reply.text(msg.text));
-
-bot.on(['/start', '/hello'], (msg) => msg.reply.text('Welcome!'));
-
-bot.start();
-
-/*const Bot = require('node-telegram-bot-api');
+const Bot = require('node-telegram-bot-api');
 const request = require('request');
 const token = '523073584:AAGgZvFUP_POTtiXWL6t0qzn-OUyImXeoq4';
 const url = 'https://launchlibrary.net/1.3/launch';
@@ -32,4 +22,14 @@ bot.on('message', (msg) => {
       }
     }
   );
-});*/
+});
+
+/*const TeleBot = require('telebot');
+
+const bot = new TeleBot('523073584:AAGgZvFUP_POTtiXWL6t0qzn-OUyImXeoq4');
+
+//bot.on('text', (msg) => msg.reply.text(msg.text));
+
+bot.on(['/start', '/hello'], (msg) => msg.reply.text('Welcome!'));
+
+bot.start();*/
