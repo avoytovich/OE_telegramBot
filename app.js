@@ -1,4 +1,50 @@
-const Bot = require('node-telegram-bot-api');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const axios = require('axios')
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+app.post('/new-message', function(req, res) {
+  const {message} = req.body
+  if (!message || message.text.toLowerCase().indexOf('boost') <0) {
+    return res.end()
+  }
+
+  axios.post('https://api.telegram.org/bot523073584:AAGgZvFUP_POTtiXWL6t0qzn-OUyImXeoq4/sendMessage', {
+      chat_id: message.chat.id,
+      text: 'solutions'
+    })
+    .then(response => {
+      console.log('Message posted')
+      res.end('ok')
+    })
+    .catch(err => {
+      console.log('Error :', err)
+      res.end('Error :' + err)
+    })
+
+});
+
+app.listen(3000, function() {
+  console.log('Telegram app listening on port 3000!');
+});
+
+/*const TeleBot = require('telebot');
+
+const bot = new TeleBot('523073584:AAGgZvFUP_POTtiXWL6t0qzn-OUyImXeoq4');*/
+
+//bot.on('text', (msg) => msg.reply.text(msg.text));
+
+/*bot.on(['/start', '/hello'], (msg) => msg.reply.text('Welcome!'));
+
+bot.start();*/
+
+/*const Bot = require('node-telegram-bot-api');
 const request = require('request');
 const token = '523073584:AAGgZvFUP_POTtiXWL6t0qzn-OUyImXeoq4';
 const url = 'https://launchlibrary.net/1.3/launch';
@@ -22,7 +68,7 @@ bot.on('message', (msg) => {
       }
     }
   );
-});
+});*/
 
 /*const TeleBot = require('telebot');
 
