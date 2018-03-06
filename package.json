@@ -5,18 +5,20 @@
   "main": "app.js",
   "scripts": {
     "test": "test",
-    "start": "node ./app.js"
+    "start:dev": "nodemon ./server.js",
+    "start": "node ./server.js"
   },
   "author": "Andrii",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "telebot": "^1.2.3"
+    "express": "^4.15.3",
+    "http-statuses": "^0.2.0",
+    "lodash": "^4.17.5"
   },
   "devDependencies": {
-    "node-telegram-bot-api": "^0.29.0",
+    "nodemon": "^1.17.1",
     "request": "^2.83.0"
   }
 }
