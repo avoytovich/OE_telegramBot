@@ -5,6 +5,7 @@ const secret = config.use_env_variable && process.env[config.use_env_variable] |
 const listReply = require('../helper/command.message');
 
 class ReplyMessage {
+
   constructor(message) {
     this.message = message
   }

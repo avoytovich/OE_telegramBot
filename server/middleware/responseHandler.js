@@ -1,10 +1,8 @@
-const pick = require('lodash/pick');
 const { OK } = require('http-statuses');
 
 module.exports = (ctrlHandler) => (req, res, next) => {
-  const ctx = pick(req, ['headers', 'body']);
 
-  ctrlHandler(ctx)
+  ctrlHandler(req, res, next)
     .then(() => {
       res.status(OK.code).send(OK.message);
       res.end();
