@@ -1,0 +1,23 @@
+{
+  "name": "telegram_bot",
+  "version": "1.0.0",
+  "description": "BOT for listen msg and create new one in Telegram",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "start:dev": "nodemon ./server.js",
+    "start": "node ./server.js"
+  },
+  "author": "Andrii",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.15.3",
+    "http-statuses": "^0.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1",
+    "request": "^2.83.0"
+  }
+}
