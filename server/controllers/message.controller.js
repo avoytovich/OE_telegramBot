@@ -9,11 +9,7 @@ module.exports = {
     const query = message.text.toLowerCase();
     const absorb = command.query.filter((command) => command === query);
 
-    return Reply.universal(message)
-      .then(() => {
-        next();
-      })
-      .catch((err) => res.send(err));
+    return Reply.universal(message);
 
   }
 };
