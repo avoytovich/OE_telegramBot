@@ -4,9 +4,8 @@ module.exports = (ctrlHandler) => (req, res, next) => {
 
   ctrlHandler(req, res, next)
     .then(() => {
-      res.status(OK.code).send(OK.message);
+      res.send(OK.message);
       res.end();
-      next();
     })
-      .catch((err) => res.send(err));
+      .catch((err) => res.status(500).send(err));
 };

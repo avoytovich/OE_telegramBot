@@ -17,7 +17,6 @@
     "http-statuses": "^0.2.0"
   },
   "devDependencies": {
-    "nodemon": "^1.17.1",
-    "request": "^2.83.0"
+    "nodemon": "^1.17.1"
   }
 }
