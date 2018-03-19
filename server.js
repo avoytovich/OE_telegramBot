@@ -1,5 +1,5 @@
 const http = require('http');
-const { app, port } = require('./config/config.env');
+const { app, port } = require('./config/config.port');
 
 const server = http.createServer(app);
 server.listen(port, () => {
