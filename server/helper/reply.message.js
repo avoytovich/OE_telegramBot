@@ -1,6 +1,6 @@
 const axios = require('axios');
 const listReply = require('../helper/command.message');
-const { secret } = require('./../../config/config.env.js');
+const { secret } = require('../../config/config.secret.js');
 
 class ReplyMessage {
 
