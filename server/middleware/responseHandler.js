@@ -5,6 +5,6 @@ module.exports = (ctrlHandler) => (req, res, next) => {
       res.end();
     })
       .catch((err) => {
-        res.status(err.status).send(err);
+        res.status(err.status || 500).send(err);
       });
 };
