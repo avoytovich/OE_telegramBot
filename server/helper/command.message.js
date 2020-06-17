@@ -198,6 +198,5 @@ function listReply(message) {
 }
 
 module.exports = {
-  requirement,
   listReply,
 };

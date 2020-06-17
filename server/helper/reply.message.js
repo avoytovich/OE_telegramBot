@@ -1,10 +1,9 @@
 const axios = require('axios');
-const { listReply, requirement } = require('../helper/command.message');
+const { listReply } = require('../helper/command.message');
 const { secret } = require('../../config/config.secret.js');
 
 class ReplyMessage {
   static universal(req, res, next) {
-    console.log('requirement', requirement);
     const { message } = req.body;
     return axios
       .post(
