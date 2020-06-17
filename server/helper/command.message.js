@@ -43,14 +43,7 @@ function listReply(message) {
               Could you assume, which your english level is?`,
         reply_markup: JSON.stringify({
           keyboard: [
-            ['beginner', 'pre_intermediate'],reply_markup: JSON.stringify({
-              keyboard: [
-                ['beginner', 'pre_intermediate'],
-                ['intermediate', 'upper_intermediate'],
-                ['advanced'],
-              ],
-              one_time_keyboard: true,
-            }),
+            ['beginner', 'pre_intermediate'],
             ['intermediate', 'upper_intermediate'],
             ['advanced'],
           ],
