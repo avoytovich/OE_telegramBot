@@ -11,7 +11,7 @@ class ReplyMessage {
         listReply(message)
       )
       .then(() => res.end())
-      .catch((err) => res.status(err.status || 500).send(err));
+      .catch((err) => console.log(err));
   }
 }
 
