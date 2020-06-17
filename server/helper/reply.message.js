@@ -8,7 +8,7 @@ class ReplyMessage {
     const { message } = req.body;
     return axios
       .post(
-        `https://api.telegram.org/bot${secret.key}/sendMessage`,
+        `https://api.telegram.org/bot${secret}/sendMessage`,
         listReply(message)
       )
       .then(() => {
