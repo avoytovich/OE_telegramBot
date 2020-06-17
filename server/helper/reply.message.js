@@ -10,12 +10,8 @@ class ReplyMessage {
         `https://api.telegram.org/bot${secret}/sendMessage`,
         listReply(message)
       )
-      .then(() => {
-        res.end();
-      })
-      .catch((err) => {
-        res.status(err.status || 500).send(err);
-      });
+      .then(() => res.end())
+      .catch((err) => res.status(err.status || 500).send(err));
   }
 }
 

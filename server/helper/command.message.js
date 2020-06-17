@@ -41,14 +41,21 @@ function listReply(message) {
         chat_id: message.chat.id,
         text: `Welcome, ${message.from.first_name} 👏!
               Could you assume, which your english level is?`,
-        // reply_markup: JSON.stringify({
-        //   keyboard: [
-        //     ['beginner', 'pre_intermediate'],
-        //     ['intermediate', 'upper_intermediate'],
-        //     ['advanced'],
-        //   ],
-        //   one_time_keyboard: true,
-        // }),
+        reply_markup: JSON.stringify({
+          keyboard: [
+            ['beginner', 'pre_intermediate'],reply_markup: JSON.stringify({
+              keyboard: [
+                ['beginner', 'pre_intermediate'],
+                ['intermediate', 'upper_intermediate'],
+                ['advanced'],
+              ],
+              one_time_keyboard: true,
+            }),
+            ['intermediate', 'upper_intermediate'],
+            ['advanced'],
+          ],
+          one_time_keyboard: true,
+        }),
       };
     case 'beginner':
       Object.keys(requirement).forEach((each) => {
