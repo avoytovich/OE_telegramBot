@@ -41,14 +41,14 @@ function listReply(message) {
         chat_id: message.chat.id,
         text: `Welcome, ${message.from.first_name} 👏!
               Could you assume, which your english level is?`,
-        reply_markup: {
-          keyboard: [
-            ['beginner', 'pre_intermediate'],
-            ['intermediate', 'upper_intermediate'],
-            ['advanced'],
-          ],
-          one_time_keyboard: true,
-        },
+        // reply_markup: JSON.stringify({
+        //   keyboard: [
+        //     ['beginner', 'pre_intermediate'],
+        //     ['intermediate', 'upper_intermediate'],
+        //     ['advanced'],
+        //   ],
+        //   one_time_keyboard: true,
+        // }),
       };
     case 'beginner':
       Object.keys(requirement).forEach((each) => {
@@ -67,10 +67,10 @@ function listReply(message) {
         parse_mode: 'Markdown',
         text: `👌 Nice. Now we have this info. Is it correct?:
               \n*${response.join(`\n`)}*`,
-        reply_markup: {
+        reply_markup: JSON.stringify({
           keyboard: [['YES', 'NO']],
           one_time_keyboard: true,
-        },
+        }),
       };
     case 'pre_intermediate':
       Object.keys(requirement).forEach((each) => {
@@ -89,10 +89,10 @@ function listReply(message) {
         parse_mode: 'Markdown',
         text: `👌 Nice. Now we have this info. Is it correct?:
               \n*${response.join(`\n`)}*`,
-        reply_markup: {
+        reply_markup: JSON.stringify({
           keyboard: [['YES', 'NO']],
           one_time_keyboard: true,
-        },
+        }),
       };
     case 'intermediate':
       Object.keys(requirement).forEach((each) => {
@@ -111,10 +111,10 @@ function listReply(message) {
         parse_mode: 'Markdown',
         text: `👌 Nice. Now we have this info. Is it correct?:
               \n*${response.join(`\n`)}*`,
-        reply_markup: {
+        reply_markup: JSON.stringify({
           keyboard: [['YES', 'NO']],
           one_time_keyboard: true,
-        },
+        }),
       };
     case 'upper_intermediate':
       Object.keys(requirement).forEach((each) => {
@@ -133,10 +133,10 @@ function listReply(message) {
         parse_mode: 'Markdown',
         text: `👌 Nice. Now we have this info. Is it correct?:
               \n*${response.join(`\n`)}*`,
-        reply_markup: {
+        reply_markup: JSON.stringify({
           keyboard: [['YES', 'NO']],
           one_time_keyboard: true,
-        },
+        }),
       };
     case 'advanced':
       Object.keys(requirement).map((each) => {
@@ -155,10 +155,10 @@ function listReply(message) {
         parse_mode: 'Markdown',
         text: `👌 Nice. Now we have this info. Is it correct?:
               \n*${response.join(`\n`)}*`,
-        reply_markup: {
+        reply_markup: JSON.stringify({
           keyboard: [['YES', 'NO']],
           one_time_keyboard: true,
-        },
+        }),
       };
     case 'yes':
       return {
