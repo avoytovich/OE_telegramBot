@@ -5,10 +5,14 @@ const { url } = require('../../config/config');
 class ReplyMessage {
   static universal(req, res, next) {
     const { message } = req.body;
-    return axios
-      .post(url.sendMessage, listReply(message))
-      .then(() => res.end())
-      .catch((err) => console.log(err));
+    const { text } = message;
+    if (text) {
+      return axios
+        .post(url.sendMessage, listReply(message))
+        .then(() => res.end())
+        .catch((err) => console.log(err));
+    }
+    res.end();
   }
 }
 
