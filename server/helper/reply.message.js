@@ -11,7 +11,7 @@ class ReplyMessage {
         listReply(message)
       )
       .then(() => res.end())
-      .catch((err) => console.log(err.message));
+      .catch((err) => console.log(err));
   }
 }
 
