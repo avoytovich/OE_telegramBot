@@ -1,7 +1,6 @@
 require('dotenv').config();
 
-const env = process.env.NODE_ENV ? 'production' : 'development';
-const secret = process.env[env];
+const secret = process.env.BOT_TOKEN;
 
 module.exports = {
   secret,
