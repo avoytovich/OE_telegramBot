@@ -7,7 +7,9 @@ module.exports = {
     const env = process.env.NODE_ENV ? 'production' : 'development';
     if (env == 'production') {
       axios
-        .post(url.setWebHook, { url: process.env.API })
+        .post(url.setWebHook, {
+          url: 'https://oe-telegram-bot.herokuapp.com/new-message',
+        })
         .then(() => {
           const { message } = req.body;
           if (message) {
