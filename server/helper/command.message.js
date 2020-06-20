@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 let requirement = {};
 
 let response;
@@ -176,6 +178,19 @@ function listReply(message) {
         response = Object.entries(requirement).map(
           (each) => `${each[0]}: ${each[1] == true ? 'yes' : each[1]}`
         );
+        const data = {
+          first_name: requirement.first_name,
+          last_name: requirement.last_name,
+          level: Object.keys(requirement)[2],
+          email: requirement.email,
+        };
+        axios
+          .post(
+            'https://oe-telegram-bot-back-end.herokuapp.com/follower_create',
+            data
+          )
+          .then(() => console.log('request for create Follower was sent!'))
+          .catch((err) => console.log(err));
         return {
           chat_id: message.chat.id,
           parse_mode: 'Markdown',
