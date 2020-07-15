@@ -11,16 +11,16 @@ module.exports = {
           url: 'https://oe-telegram-bot.herokuapp.com/new-message',
         })
         .then(() => {
-          const { message } = req.body;
-          if (message) {
+          const { message, callback_query } = req.body;
+          if (message || callback_query) {
             return Reply.universal(req, res, next);
           }
           res.end();
         })
         .catch((err) => console.log(err));
     } else if (env == 'development') {
-      const { message } = req.body;
-      if (message) {
+      const { message, callback_query } = req.body;
+      if (message || callback_query) {
         return Reply.universal(req, res, next);
       }
     }
