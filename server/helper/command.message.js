@@ -51,7 +51,7 @@ const today = new Date();
 const minDate = new Date();
 const maxDate = new Date();
 maxDate.setMonth(today.getMonth());
-maxDate.setDate(today.getDate() + 100);
+maxDate.setDate(today.getDate() + 21);
 
 function listReply(message) {
   let query;
@@ -173,6 +173,8 @@ function listReply(message) {
     case query:
       if (query.match(/@/g)) {
         requirement.email = message.text;
+        minDate.setMonth(today.getMonth());
+        minDate.setDate(today.getDate());
         return {
           chat_id: message.chat.id,
           parse_mode: 'Markdown',
@@ -236,13 +238,23 @@ function listReply(message) {
           }),
         };
       }
+      if (query.match(/calendar-telegram-next/g)) {
+        minDate.setMonth(today.getMonth() + 1);
+        minDate.setDate(today.getDate() - today.getDate() + 1);
+        return {
+          chat_id: message.message.chat.id,
+          parse_mode: 'Markdown',
+          text: `💫 Ok. It's a next one`,
+          ...calendar.setMinDate(minDate).setMaxDate(maxDate).getCalendar(),
+        };
+      }
       return {
-        chat_id: message.chat.id,
+        chat_id: (message.chat && message.chat.id) || message.message.chat.id,
         text: "😔 Sorry, I don't understand this message!",
       };
     default:
       return {
-        chat_id: message.chat.id,
+        chat_id: (message.chat && message.chat.id) || message.message.chat.id,
         text: "😔 Sorry, I don't understand this message!",
       };
   }
